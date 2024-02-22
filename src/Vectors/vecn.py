@@ -85,7 +85,7 @@ class Vector:
         """
         if self.is_zero():
             raise ValueError("Cannot normalize a zero vector")
-        [coord / self.module for coord in self.coords]
+        self.coords[::] = [coord / self.module for coord in self.coords]
 
     def get_normalized(self) -> object:
         """Return the normalized vector as a new object
@@ -104,7 +104,19 @@ class Vector:
             raise ValueError("Cannot normalize a zero vector")
         return type(self)(*[coord / self.module for coord in self.coords])
 
-    def create_parallel(self, module: float) -> object:
+    def create_parallel(self, module: float = 1) -> object:
+        """Crate a new object parallel to the instance and with a specified module
+
+        Parameters
+        ----------
+        module : float, optional
+            the module the new vector has to be, by default 1
+
+        Returns
+        -------
+        object
+            a new instance it's returned the same type as self
+        """
         return self.get_normalized() * module
 
     @staticmethod
