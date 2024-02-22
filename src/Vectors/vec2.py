@@ -64,8 +64,8 @@ class Vec2(Vector):
             * math.cos(Vec2.get_angle_between(self, other))
         )
 
-    def project_perpendicular(self, other: object) -> object:
-        """Get the perpendicular vector of other on self
+    def project_normal(self, other: object) -> object:
+        """Get the normal vector of other on self
 
         Args:
             other (object): another Vec2
@@ -88,9 +88,9 @@ class Vec2(Vector):
 
         Returns:
             Tuple[object]: Two Vec2
-                the first is the Tangent component and the second is the perpendicular
+                the first is the Tangent component and the second is the normal
         """
-        return self.project_tangent(other), self.project_perpendicular(other)
+        return self.project_tangent(other), self.project_normal(other)
 
     @classmethod
     def from_complex(cls, num: complex) -> object:
