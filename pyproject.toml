@@ -1,17 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "Vector_Matrix_Tensor_Library"
 version = "0.0.1"
 authors = [
   { name="Mattia Ballico", email="NONE" },
 ]
+maintainers = []
 description = "This package contains modules to easly work with vectors, matrices and tensors"
 readme = "README.md"
 requires-python = ">=3.12"
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: MIT License",
+    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
+dependencies = []
+keywords = ["vectors", "vector", "matrices", "matrix", "tensor", "tensors"]
+
 
 [project.urls]
 Homepage = "https://github.com/Mattia04/VectorMatrixTensorLib"

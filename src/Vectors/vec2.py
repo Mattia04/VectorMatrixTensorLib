@@ -1,7 +1,7 @@
 import cmath
 from typing import List, Tuple
 
-import src.vecn as vecn
+import Vectors.vecn as vecn
 
 
 class Vec2(vecn.Vector):
