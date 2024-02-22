@@ -81,6 +81,15 @@ class Vec2(Vector):
         return other - self.project_tangent(other)
 
     def project_components(self, other: object) -> Tuple[object]:
+        """get both projection of other on self
+
+        Args:
+            other (object): another Vec2
+
+        Returns:
+            Tuple[object]: Two Vec2
+                the first is the Tangent component and the second is the perpendicular
+        """
         return self.project_tangent(other), self.project_perpendicular(other)
 
     @classmethod

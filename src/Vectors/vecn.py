@@ -76,14 +76,20 @@ class Vector:
     def get_cartesian_coordinates(self) -> Tuple[float]:
         return tuple(coord for coord in self.coords)
 
-    # TODO
-    # ? I don't know if it's better to make it a classmethod or leave it as it is
-    def copy():
-        pass
+    # ? I don't know if it's better to make it a staticmethod or leave it as it is
+    def copy(self):
+        return type(self)(*(coord for coord in self.coords))
 
-    # TODO
     def translate(self, origin: object):
-        pass
+        """In place tanslation
+
+        Args:
+            origin (object): the new origin in current coordinates
+        """
+        if not isinstance(origin, Vector):
+            raise ValueError("The origin of the translation should be a Vector")
+        Vector.__check_raise_same_dim_error(self, origin)
+        self.coords[::] = [x + y for x, y in zip(self.coords, (-origin).coords)]
 
     # TODO
     def transform_coords(self, eigen_vector: object):
