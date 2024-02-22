@@ -69,11 +69,25 @@ class Vector:
             return self
         return self * self ** (other - 1)
 
+    # ? should I add it to the properties?
     def is_zero(self) -> bool:
         return not any(self.coords)
 
     def get_cartesian_coordinates(self) -> Tuple[float]:
         return tuple(coord for coord in self.coords)
+
+    # TODO
+    # ? I don't know if it's better to make it a classmethod or leave it as it is
+    def copy():
+        pass
+
+    # TODO
+    def translate(self, origin: object):
+        pass
+
+    # TODO
+    def transform_coords(self, eigen_vector: object):
+        pass
 
     def normalize(self) -> None:
         """Normalize in place the vector
@@ -117,11 +131,17 @@ class Vector:
         object
             a new instance it's returned the same type as self
         """
+        if not isinstance(module, int | float):
+            raise ValueError(
+                "The module of the new vector should be a float or integer"
+            )
         return self.get_normalized() * module
 
     @staticmethod
-    def have_same_dimension(x: object, y: object) -> bool:
-        return len(x) == len(y)
+    def have_same_dimension(a: object, b: object) -> bool:
+        if not isinstance(a, Vector) or not isinstance(b, Vector):
+            raise TypeError("Both arguments should be Vector")
+        return len(a) == len(b)
 
     @staticmethod
     def __check_raise_same_dim_error(x: object, y: object) -> None:
