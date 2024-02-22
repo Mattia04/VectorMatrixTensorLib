@@ -35,3 +35,27 @@ class Vec2(vecn.Vector):
 
     def get_polar_coord(self) -> Tuple[float]:
         return self.module, self.phase
+
+    def transform_coords(self, x_prime, y_prime):
+        pass
+
+    def project_tangent():
+        pass
+
+    def project_pependicular():
+        pass
+
+    def project_components():
+        pass  # return project_tangent and project_perpendicular
+
+    @staticmethod
+    def cross_product_module():
+        pass
+
+    @classmethod
+    def Vec2_from_complex(self):
+        pass
+
+    @staticmethod
+    def are_orthogonal(a, b):
+        pass

@@ -2,7 +2,6 @@ import math
 from typing import List, Tuple
 
 
-# abstract class for vectors of dimension n
 class Vector:
     def __init__(self, *coords: Tuple[float]) -> None:
         if len(coords) == 0:
@@ -13,6 +12,10 @@ class Vector:
             raise TypeError("Vector arguments must be int or float")
 
         self.coords: List[float] = list(coords)
+
+    @property
+    def module(self) -> float:
+        return math.hypot(*self.coords)
 
     def __repr__(self) -> str:
         return (
@@ -72,9 +75,37 @@ class Vector:
     def get_cartesian_coordinates(self) -> Tuple[float]:
         return tuple(coord for coord in self.coords)
 
-    @property
-    def module(self) -> float:
-        return math.hypot(*self.coords)
+    def normalize(self) -> None:
+        """Normalize in place the vector
+
+        Raises
+        ------
+        ValueError
+            if the vector is a zero vector, the normalized vector it's not defined
+        """
+        if self.is_zero():
+            raise ValueError("Cannot normalize a zero vector")
+        [coord / self.module for coord in self.coords]
+
+    def get_normalized(self) -> object:
+        """Return the normalized vector as a new object
+
+        Returns
+        -------
+        object
+            The normalized vector, it's type it's the same as the vector given
+
+        Raises
+        ------
+        ValueError
+            if the vector is a zero vector, the normalized vector it's not defined
+        """
+        if self.is_zero():
+            raise ValueError("Cannot normalize a zero vector")
+        return type(self)(*[coord / self.module for coord in self.coords])
+
+    def create_parallel(self, module: float) -> object:
+        return self.get_normalized() * module
 
     @staticmethod
     def have_same_dimension(x: object, y: object) -> bool:
