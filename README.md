@@ -18,7 +18,7 @@ Vectors store n-dimensional information in an array-like structure, this library
 
 This class it's a general vector class for n-dimensional vectors.
 
-To create a vector simply write: ```Vector(1, 3.4, ...)```, the number of arguments it's the same as the vector dimension. The vectors sores the cartesian coordinates as a list.
+To create a vector simply write: ```Vector(1, 3.4, ...)```, the number of arguments it's the same as the vector dimension. The vectors sores the cartesian coordinates as a tuple.
 
 You can access the coordinates with ```.coords``` (you can modify the coordinates of the object, even tho it's not recommended use ```.translate(...)``` instead) or with ```.get_cartesian_coordinates()``` (you cannot modify the coordinates of the objet)
 
