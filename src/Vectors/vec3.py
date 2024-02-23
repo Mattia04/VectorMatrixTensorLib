@@ -1,10 +1,11 @@
 import math
 from typing import List, Tuple
 
+from .vec2 import Vec2
 from .vecn import Vector
 
 
-class Vec2(Vector):
+class Vec3(Vector):
     def __init__(self, *coords: Tuple[float]) -> None:
         if len(coords) != 3:
             raise TypeError(
@@ -50,5 +51,44 @@ class Vec2(Vector):
         )
 
     @property
-    def phases(self):
+    def radial_dist(self):
+        return Vec2(self.x, self.y).module
+
+    def get_phases(self):
         return self.polar, self.azimuth
+
+    def get_spherical_coordinates(self):
+        return self.module, *self.get_phases()
+
+    def get_cylindrical_coordinates(self):
+        return self.radial_dist, self.azimuth, self.z
+
+    @classmethod
+    def from_spherical(cls, rho, polar, azimuth):
+        if (
+            not isinstance(rho, int | float)
+            or not isinstance(polar, int | float)
+            or not isinstance(azimuth, int | float)
+        ):
+            raise TypeError("All three arguments should be floats or integers")
+        if rho < 0:
+            raise ValueError("The modulus of the vector should be positive or zero")
+        return Vec3(
+            rho * math.sin(polar) * math.cos(azimuth),
+            rho * math.sin(polar) * math.sin(azimuth),
+            rho * math.cos(polar),
+        )
+
+    @classmethod
+    def from_cylindrical(cls, radial_dist, azimuth, z):
+        if (
+            not isinstance(radial_dist, int | float)
+            or not isinstance(azimuth, int | float)
+            or not isinstance(z, int | float)
+        ):
+            raise TypeError("All three arguments should be floats or integers")
+        if radial_dist < 0:
+            raise ValueError(
+                "The modulus of the radial distance should be positive or zero"
+            )
+        return Vec3(radial_dist * math.cos(azimuth), radial_dist * math.sin(azimuth), z)
