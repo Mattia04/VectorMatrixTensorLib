@@ -69,7 +69,7 @@ class Vector:
             return self
         return self * self ** (other - 1)
 
-    # ? should I add it to the properties?
+    # ? should I use is_similar()?
     def is_zero(self) -> bool:
         return not any(self.coords)
 
@@ -142,6 +142,24 @@ class Vector:
                 "The module of the new vector should be a float or integer"
             )
         return self.get_normalized() * module
+
+    # TODO
+    def shorten_to(self, other):
+        pass
+
+    # TODO
+    def stretch_to(self, other):
+        pass
+
+    # TODO
+    @staticmethod
+    def shorten_to_minimum_length(a, b):  # ? should I use an iterable?
+        pass
+
+    # TODO
+    @staticmethod
+    def stretch_to_maximum_length(a, b):
+        pass
 
     @staticmethod
     def have_same_dimension(a: object, b: object) -> bool:
