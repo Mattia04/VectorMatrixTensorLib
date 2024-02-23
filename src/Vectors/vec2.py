@@ -17,11 +17,11 @@ class Vec2(Vector):
         self.coords: List[float] = list(coords)
 
     @property
-    def x(self):
+    def x(self) -> float:
         return self.coords[0]
 
     @property
-    def y(self):
+    def y(self) -> float:
         return self.coords[1]
 
     @property
