@@ -1,12 +1,12 @@
 import math
-from typing import List, Tuple
+from typing import Tuple
 
 from .vec2 import Vec2
 from .vecn import Vector
 
 
 class Vec3(Vector):
-    def __init__(self, *coords: Tuple[float]) -> None:
+    def __init__(self, *coords: float) -> None:
         if len(coords) != 3:
             raise TypeError(
                 f"Vector objects must have 2 argument, {len(coords)} where given"
@@ -14,7 +14,7 @@ class Vec3(Vector):
         if any(not isinstance(coord, int | float) for coord in coords):
             raise TypeError("Vector arguments must be int or float")
 
-        self.coords: List[float] = list(coords)
+        self.coords: Tuple[float] = tuple(coords)
 
     @property
     def x(self) -> float:
