@@ -17,19 +17,19 @@ class Vec3(Vector):
         self.coords: List[float] = list(coords)
 
     @property
-    def x(self):
+    def x(self) -> float:
         return self.coords[0]
 
     @property
-    def y(self):
+    def y(self) -> float:
         return self.coords[1]
 
     @property
-    def z(self):
+    def z(self) -> float:
         return self.coords[2]
 
     @property
-    def polar(self):
+    def polar(self) -> float:
         if self.is_zero():
             raise ValueError("The polar angle of a zero vector it's undefined")
         if self.z == 0:
@@ -41,7 +41,7 @@ class Vec3(Vector):
         )
 
     @property
-    def azimuth(self):
+    def azimuth(self) -> float:
         if self.x == 0 and self.y == 0:
             raise ValueError("The azimuth of a vector with x=0 and y=0 it's undefined")
         if self.x == 0:
@@ -51,20 +51,20 @@ class Vec3(Vector):
         )
 
     @property
-    def radial_dist(self):
+    def radial_dist(self) -> float:
         return Vec2(self.x, self.y).module
 
-    def get_phases(self):
+    def get_phases(self) -> Tuple[float]:
         return self.polar, self.azimuth
 
-    def get_spherical_coordinates(self):
+    def get_spherical_coordinates(self) -> Tuple[float]:
         return self.module, *self.get_phases()
 
-    def get_cylindrical_coordinates(self):
+    def get_cylindrical_coordinates(self) -> Tuple[float]:
         return self.radial_dist, self.azimuth, self.z
 
     @classmethod
-    def from_spherical(cls, rho, polar, azimuth):
+    def from_spherical(cls, rho: float, polar: float, azimuth: float) -> object:
         if (
             not isinstance(rho, int | float)
             or not isinstance(polar, int | float)
@@ -80,7 +80,7 @@ class Vec3(Vector):
         )
 
     @classmethod
-    def from_cylindrical(cls, radial_dist, azimuth, z):
+    def from_cylindrical(cls, radial_dist: float, azimuth: float, z: float) -> float:
         if (
             not isinstance(radial_dist, int | float)
             or not isinstance(azimuth, int | float)
