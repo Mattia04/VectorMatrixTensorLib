@@ -98,6 +98,14 @@ class Vec2(Vector):
             raise TypeError("Argument should be a complex number")
         return Vec2(num.real, num.imag)
 
+    @classmethod
+    def from_polar(cls, rho: float, phi: float) -> object:
+        if not isinstance(rho, int | float) or not isinstance(phi, int | float):
+            raise TypeError("Both arguments should be floats or integers")
+        if rho < 0:
+            raise ValueError("The modulus of the vector should be positive")
+        return Vec2(rho * math.cos(phi), rho * math.sin(phi))
+
     @staticmethod
     def cross_prod_module(a: object, b: object) -> float:
         if not isinstance(a, Vec2) or not isinstance(b, Vec2):

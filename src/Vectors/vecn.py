@@ -91,7 +91,7 @@ class Vector:
         Vector.__check_raise_same_dim_error(self, origin)
         self.coords[::] = [x + y for x, y in zip(self.coords, (-origin).coords)]
 
-    # TODO
+    # TODO after implementing matrices
     def transform_coords(self, eigen_vector: object):
         pass
 
@@ -148,6 +148,12 @@ class Vector:
         if not isinstance(a, Vector) or not isinstance(b, Vector):
             raise TypeError("Both arguments should be Vector")
         return len(a) == len(b)
+
+    @staticmethod
+    def distance(a: object, b: object) -> float:
+        if not isinstance(a, Vector) or not isinstance(b, Vector):
+            raise TypeError("Both arguments should be Vector")
+        return (b - a).module
 
     @staticmethod
     def __check_raise_same_dim_error(x: object, y: object) -> None:
