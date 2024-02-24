@@ -128,13 +128,6 @@ class Vec2(Vector):
             raise TypeError("Both arguments should be Vec2")
         return a.module * b.module * math.sin(Vec2.get_angle_between(a, b))
 
-    @staticmethod
-    def are_orthogonal(a: object, b: object) -> bool:
-        """Return true if two vectors are orthogonal"""
-        if not isinstance(a, Vec2) or not isinstance(b, Vec2):
-            raise TypeError("Both arguments should be Vec2")
-        return bool(a * b)
-
     # ! this function returns the angle of b-a not a-b
     @staticmethod
     def get_angle_between(a: object, b: object) -> float:
