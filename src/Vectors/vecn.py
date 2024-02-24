@@ -22,6 +22,12 @@ class Vector:
         """return the modulus of the vector, which is the euclidean norm in n dimensions"""
         return math.hypot(*self.coords)
 
+    # TODO
+    # ! I should modify this or __repr__() to get two different things
+    def __str__():
+        """return a string in the form of Vec{dimension}D{tuple of the coordinates}"""
+        pass
+
     def __repr__(self) -> str:
         """return a string in the form of Vec{dimension}D{tuple of the coordinates}"""
         return (
@@ -82,6 +88,51 @@ class Vector:
         if other == 1:
             return self
         return self * self ** (other - 1)
+
+    # TODO
+    # ? should I round them or not?
+    def __int__(self):
+        """set the coordinates of the vector to integers"""
+        pass
+
+    # TODO
+    def __ceil__(self):
+        """set the coordinates of the vector to integers rounding up"""
+        pass
+
+    # TODO
+    def __floor__(self):
+        """set the coordinates of the vector to integers rounding down"""
+        pass
+
+    # TODO
+    def __round__(self):
+        """set the coordinates of the vector to integers rounding like math.round()"""
+        pass
+
+    # TODO
+    def __float__(self):
+        """set the coordinates of the vector to floats"""
+        pass
+
+    # TODO
+    def __trunc__(self, decimals: int):
+        """set the coordinates of the vector to floats with n decimals"""
+        pass
+
+    # TODO
+    # ? should I add this?
+    def __bool__(self):
+        """return true if the vector is a zero vector"""
+        pass
+
+    # TODO
+    def __format__(self, format_spec):
+        """add formatting to __str__()"""
+        pass
+
+    # TODO
+    # add more magic methods
 
     # ? should I use is_similar()?
     def is_zero(self) -> bool:
