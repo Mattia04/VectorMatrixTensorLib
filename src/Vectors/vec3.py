@@ -86,22 +86,22 @@ class Vec3(Vector):
         return -self + other
 
     # TODO
-    def __matmul__(self, other):
+    def __matmul__(self, other: object) -> object:
         """definition of cross product"""
         pass
 
     # TODO
-    def rotate_x(self, phi: float):
+    def rotate_x(self, phi: float) -> None:
         """In place counter clockwise rotation around the x-axis"""
         pass
 
     # TODO
-    def rotate_y(self, phi: float):
+    def rotate_y(self, phi: float) -> None:
         """In place counter clockwise rotation around the y-axis"""
         pass
 
     # TODO
-    def rotate_z(self, phi: float):
+    def rotate_z(self, phi: float) -> None:
         """In place counter clockwise rotation around the z-axis"""
         pass
 
