@@ -1,6 +1,6 @@
 import copy
 import math
-from typing import Tuple
+from typing import List, Tuple
 
 
 class Vector:
@@ -216,24 +216,11 @@ class Vector:
             )
         return self.get_normalized() * module
 
-    # TODO NOTE
-    def shorten_to(self, other: object) -> object:
-        pass
-
-    # TODO
-    def stretch_to(self, other: object) -> object:
-        pass
-
-    # TODO
-    @staticmethod
-    def shorten_to_minimum_length(*vectors: object) -> Tuple[object]:
-        pass
-
-    # TODO
-    @staticmethod
-    def stretch_to_maximum_length(
-        *vectors: object, default: float = 0
-    ) -> Tuple[object]:
+    @classmethod
+    def transform_dimension():
+        """similar to transform_coordinates,
+        but with the possibility to change the number of dimensions
+        """
         pass
 
     @staticmethod
