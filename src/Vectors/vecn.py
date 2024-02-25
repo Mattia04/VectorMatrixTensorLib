@@ -165,8 +165,14 @@ class Vector:
         self.coords[::] = [x + y for x, y in zip(self.coords, (-origin).coords)]
 
     # TODO after implementing matrices
-    def transform_coords(self, eigen_vector: object):
+    def transform_coords(self, matrix):
         """Use a matrix to transform the coordinates"""
+        pass
+
+    def transform_dimension(self):
+        """creates a new vector from self and applies a transformation with the
+        possibility to change the number of dimensions
+        """
         pass
 
     def normalize(self) -> None:
@@ -215,13 +221,6 @@ class Vector:
                 "The module of the new vector should be a float or integer"
             )
         return self.get_normalized() * module
-
-    @classmethod
-    def transform_dimension():
-        """similar to transform_coordinates,
-        but with the possibility to change the number of dimensions
-        """
-        pass
 
     @staticmethod
     def have_same_dimension(a: object, b: object) -> bool:
