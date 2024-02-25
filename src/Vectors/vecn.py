@@ -222,6 +222,11 @@ class Vector:
             )
         return self.get_normalized() * module
 
+    @classmethod
+    def get_units_vectors(cls, dimensions: int):
+        """return a tuple of the unit vectors (Vector(1, 0, ...), Vector(0, 1, ...), ...)"""
+        pass  # return type(cls)()
+
     @staticmethod
     def have_same_dimension(a: object, b: object) -> bool:
         """Return true if the arguments have the same length, false otherwise"""
