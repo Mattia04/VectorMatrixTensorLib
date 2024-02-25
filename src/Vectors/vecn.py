@@ -250,13 +250,12 @@ class Vector:
             raise TypeError("Both arguments should be Vector")
         return (b - a).module
 
-    # TODO rewrite this for a nD vector
-    # @staticmethod
-    # def are_orthogonal(a: object, b: object) -> bool:
-    #     """Return true if two vectors are orthogonal"""
-    #     if not isinstance(a, Vec2) or not isinstance(b, Vec2):
-    #         raise TypeError("Both arguments should be Vec2")
-    #     return bool(a * b)
+    @staticmethod
+    def are_orthogonal(a: object, b: object) -> bool:
+        """Return true if two vectors are orthogonal"""
+        if not isinstance(a, Vector) or not isinstance(b, Vector):
+            raise TypeError("Both arguments should be Vector (or a subclass)")
+        return bool(a * b)
 
     @staticmethod
     def __check_raise_same_dim_error(x: object, y: object) -> None:
