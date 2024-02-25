@@ -50,11 +50,9 @@ class Vec2(Vector):
         """definition of reverse addition"""
         return -self + other
 
-    # TODO
-    # ? should I add this?
-    def __complex__():
+    def __complex__(self):
         """return a complex number from a Vec2"""
-        pass
+        return complex(self.x, self.y)
 
     def get_polar_coord(self) -> Tuple[float]:
         """return the polar coordinates of the vector"""
