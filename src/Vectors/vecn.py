@@ -15,7 +15,7 @@ class Vector:
         if any(not isinstance(coord, int | float) for coord in coords):
             raise TypeError("Vector arguments must be int or float")
 
-        self.coords: tuple[float] = tuple(coords)
+        self.coords: Tuple[float] = tuple(coords)
 
     @property
     def module(self) -> float:
@@ -103,6 +103,10 @@ class Vector:
             bool: true if the vector is in the form of Vector(0, 0, ...), false otherwise
         """
         return not any(self.coords)
+
+    # todo
+    def is_one():
+        pass
 
     def get_cartesian_coordinates(self) -> Tuple[float]:
         """return the cartesian coordinates of the vector as a tuple"""
