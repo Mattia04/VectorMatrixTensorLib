@@ -7,13 +7,16 @@ class Matrix:
     def __init__(self, *coords: Tuple[float]) -> None:
         Matrix.__check_len(coords)
         self.coords: Tuple[float] = tuple(coords)
+
+    @property
+    def determinant():
         pass
 
     def __str__():
         pass
 
-    def __repr__():
-        pass
+    def __repr__(self):
+        return "Not implemented"
 
     def __add__():
         pass
@@ -48,8 +51,47 @@ class Matrix:
     def is_zero():
         pass
 
+    def is_one():
+        pass
+
+    def is_diagonal():
+        pass
+
+    def is_symmetric():
+        pass
+
+    def is_antisymmetric():
+        pass
+
+    def transpose():
+        """in place"""
+        pass
+
+    def gauss_method():
+        pass
+
+    def gauss_reversed():
+        pass
+
+    def gauss(self):
+        self.gauss_method()
+        self.gauss_reversed()
+
     @classmethod
     def orlata(a, b):  # search the name in english
+        pass
+
+    @classmethod
+    def get_transposed():
+        """not in place"""
+        pass
+
+    @classmethod
+    def identity():
+        pass
+
+    @classmethod
+    def invert():
         pass
 
     @staticmethod
@@ -66,9 +108,9 @@ class Matrix:
             raise TypeError("Matrices should have at least one row")
         n_elements = len(coords[0])
         for row in coords:
-            if len_row := len(row) == 0:
+            if (len_row := len(row)) == 0:
                 raise TypeError("Each row should have at least one element in a matrix")
-            for value in len_row:
+            for value in row:
                 if isinstance(value, int | float):
                     continue
                 raise TypeError("Matrices values can only be integers or floats")
