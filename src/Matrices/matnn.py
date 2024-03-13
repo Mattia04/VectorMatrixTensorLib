@@ -13,6 +13,20 @@ class SMatrix(Matrix):
     def trace():
         pass
 
+    def is_symmetric():
+        pass
+
+    def is_antisymmetric():
+        pass
+
+    @classmethod
+    def invert():
+        pass
+
+    @classmethod
+    def identity():
+        pass
+
     @staticmethod
     def __check_len(coords):
         if (n_rows := len(coords)) == 0:

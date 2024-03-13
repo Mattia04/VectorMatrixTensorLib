@@ -9,13 +9,24 @@ class Matrix:
         self.coords: Tuple[float] = tuple(coords)
 
     @property
-    def determinant():
+    def determinant(self):
         pass
 
-    def __str__():
-        pass
+    def __str__(self):
+        """Return a pretty visualization of the matrix"""
+        n_rows, n_columns = self.size()
+        string = f"Matrix {n_rows} x {n_columns}\n(\n"
+        for row in self.coords:
+            string += "\t("
+            for coord in row:
+                string += f"{coord: >4.3g}, "
+            else:
+                string = string[:-2]
+            string += ")\n"
+        return string + ")"
 
     def __repr__(self):
+        n_rows, n_columns = self.size()
         return "Not implemented"
 
     def __add__():
@@ -57,16 +68,11 @@ class Matrix:
     def is_diagonal():
         pass
 
-    def is_symmetric():
-        pass
-
-    def is_antisymmetric():
-        pass
-
     def transpose():
         """in place"""
         pass
 
+    # ? remove gauss method for child classes?
     def gauss_method():
         pass
 
@@ -77,6 +83,9 @@ class Matrix:
         self.gauss_method()
         self.gauss_reversed()
 
+    def size(self):
+        return len(self.coords), len(self.coords[0])
+
     @classmethod
     def orlata(a, b):  # search the name in english
         pass
@@ -86,17 +95,9 @@ class Matrix:
         """not in place"""
         pass
 
-    @classmethod
-    def identity():
-        pass
-
-    @classmethod
-    def invert():
-        pass
-
     @staticmethod
-    def size(matrix: object):
-        pass
+    def get_size(matrix: object):
+        return matrix.size()
 
     @staticmethod
     def have_same_size():
